@@ -1,0 +1,317 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #searchInput {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        #searchResults {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .searchResult {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Search Database</h1>
+    <input type="text" id="searchInput" onkeyup="searchDatabase()" placeholder="Type to search...">
+    <div id="searchResults"></div>
+
+    <script>
+        // Predefined list of keys
+        var data = ["Apple", "Banana", "Orange", "Pear", "Peach", "Plum", "Pineapple", "Grape", "Kiwi", "Mango"];
+
+        function searchDatabase() {
+            var input = document.getElementById("searchInput").value;
+            var resultsDiv = document.getElementById("searchResults");
+            resultsDiv.innerHTML = ""; // Clear previous results
+
+            // Filter data based on input
+            var filteredData = data.filter(function (item) {
+                return item.toLowerCase().includes(input.toLowerCase());
+            });
+
+            // Display search results
+            filteredData.forEach(function (item) {
+                var p = document.createElement("p");
+                p.textContent = item;
+                p.className = "searchResult";
+                resultsDiv.appendChild(p);
+            });
+        }
+    </script>
+</body>
+
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #searchInput {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        #searchResults {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .searchResult {
+            margin: 5px 0;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Search Database</h1>
+    <input type="text" id="searchInput" onkeyup="searchDatabase()" placeholder="Type to search...">
+    <div id="searchResults"></div>
+
+    <script>
+        // Predefined list of keys and their associated URLs
+        var data = {
+            "Apple": "https://example.com/apple",
+            "Banana": "https://example.com/banana",
+            "Orange": "https://example.com/orange",
+            "Pear": "https://example.com/pear",
+            "Peach": "https://example.com/peach",
+            "Plum": "https://example.com/plum",
+            "Pineapple": "https://example.com/pineapple",
+            "Grape": "https://example.com/grape",
+            "Kiwi": "https://example.com/kiwi",
+            "Mango": "https://example.com/mango"
+        };
+
+        function searchDatabase() {
+            var input = document.getElementById("searchInput").value;
+            var resultsDiv = document.getElementById("searchResults");
+            resultsDiv.innerHTML = ""; // Clear previous results
+
+            // Filter data based on input
+            var filteredData = Object.keys(data).filter(function (item) {
+                return item.toLowerCase().includes(input.toLowerCase());
+            });
+
+            // Display search results
+            filteredData.forEach(function (item) {
+                var a = document.createElement("a");
+                a.textContent = item;
+                a.className = "searchResult";
+                a.href = data[item];
+                a.target = "_blank"; // Open link in a new tab
+                var p = document.createElement("p");
+                p.appendChild(a);
+                resultsDiv.appendChild(p);
+            });
+        }
+    </script>
+</body>
+
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #searchInput {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        #searchResults {
+            margin-top: 20px;
+            text-align: left;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .searchResult {
+            margin: 5px 0;
+            cursor: pointer;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .searchResult:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Search Database</h1>
+    <input type="text" id="searchInput" onkeyup="searchDatabase()" placeholder="Type to search...">
+    <ul id="searchResults"></ul>
+
+    <script>
+        // Predefined list of keys and their associated URLs
+        var data = {
+            "Apple": "https://example.com/apple",
+            "Banana": "https://example.com/banana",
+            "Orange": "https://example.com/orange",
+            "Pear": "https://example.com/pear",
+            "Peach": "https://example.com/peach",
+            "Plum": "https://example.com/plum",
+            "Pineapple": "https://example.com/pineapple",
+            "Grape": "https://example.com/grape",
+            "Kiwi": "https://example.com/kiwi",
+            "Mango": "https://example.com/mango"
+        };
+
+        function searchDatabase() {
+            var input = document.getElementById("searchInput").value;
+            var resultsUl = document.getElementById("searchResults");
+            resultsUl.innerHTML = ""; // Clear previous results
+
+            // Filter data based on input
+            var filteredData = Object.keys(data).filter(function (item) {
+                return item.toLowerCase().includes(input.toLowerCase());
+            });
+
+            // Display search results
+            filteredData.forEach(function (item) {
+                var li = document.createElement("li");
+                var a = document.createElement("a");
+                a.textContent = item;
+                a.className = "searchResult";
+                a.href = data[item];
+                a.target = "_blank"; // Open link in a new tab
+                li.appendChild(a);
+                resultsUl.appendChild(li);
+            });
+        }
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #searchInput {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        #searchResults {
+            margin-top: 20px;
+            text-align: left;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .searchResult {
+            margin: 5px 0;
+            cursor: pointer;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .searchResult:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Search Database</h1>
+    <input type="text" id="searchInput" onkeyup="searchDatabase()" placeholder="Type to search...">
+    <ul id="searchResults"></ul>
+
+    <script>
+        // Predefined list of keys and their associated URLs
+        var data = {
+            "Apple": "https://example.com/apple",
+            "Banana": "https://example.com/banana",
+            "Orange": "https://example.com/orange",
+            "Pear": "https://example.com/pear",
+            "Peach": "https://example.com/peach",
+            "Plum": "https://example.com/plum",
+            "Pineapple": "https://example.com/pineapple",
+            "Grape": "https://example.com/grape",
+            "Kiwi": "https://example.com/kiwi",
+            "Mango": "https://example.com/mango"
+        };
+
+        function searchDatabase() {
+            var input = document.getElementById("searchInput").value.trim(); // Trim whitespace
+            var resultsUl = document.getElementById("searchResults");
+            resultsUl.innerHTML = ""; // Clear previous results
+
+            // Display search results only if input is not empty
+            if (input !== "") {
+                // Filter data based on input
+                var filteredData = Object.keys(data).filter(function (item) {
+                    return item.toLowerCase().includes(input.toLowerCase());
+                });
+
+                // Display search results
+                filteredData.forEach(function (item) {
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.textContent = item;
+                    a.className = "searchResult";
+                    a.href = data[item];
+                    a.target = "_blank"; // Open link in a new tab
+                    li.appendChild(a);
+                    resultsUl.appendChild(li);
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
